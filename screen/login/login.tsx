@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {View, Text, SafeAreaView, Image, TouchableOpacity} from 'react-native';
 import {TextField} from '@components';
+import {ScreenProps} from '@constants/screens';
 
 import tw from '@tw';
 
-export const Login = () => {
+export const Login = ({navigation}: ScreenProps) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false);
 
   return (

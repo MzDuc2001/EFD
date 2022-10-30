@@ -11,7 +11,14 @@ export const Providers = () => {
         JSXChildrenKey.map((key: string) => (
           <Screen.Stack
             key={key}
-            name={SCREENS[key]}
+            {...(typeof SCREENS[key] !== 'string'
+              ? {
+                  name: '',
+                  ...(SCREENS[key] as ObjectStyle),
+                }
+              : {
+                  name: SCREENS[key] as string,
+                })}
             component={screens[key]}
           />
         ))
