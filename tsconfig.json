@@ -1,0 +1,33 @@
+// prettier-ignore
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",     /* Recommended React Native TSConfig base */
+  "compilerOptions": {
+     "strict": true,
+        "baseUrl": "./",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "moduleResolution": "node",
+        "noEmit": true,
+        "resolveJsonModule": true,
+        "target": "esnext",
+        "typeRoots": ["./node_modules/@types", "./src/types/*"],
+        "paths": {
+            "@tw": ["src/lib/tailwind/index.ts"],
+            "@components": ["src/components/index.ts"],
+            "@hooks": ["src/hooks/index.ts"],
+            "@utils/*": ["src/utils/*"],
+            "@constants/*": ["src/constants/*"],
+            "@lib/*": ["src/lib/*"],
+            "@types": ["src/types/type.d.ts"],
+            "@env": ["src/utils/get-env.ts"],
+            "@storage": ["src/lib/react-storage/react-storage.ts"]
+        },
+        "noImplicitAny": true,
+    /* Visit https://aka.ms/tsconfig.json to read more about this file */
+
+    /* Completeness */
+    //"skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
+  }
+}
