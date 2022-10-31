@@ -5,12 +5,14 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButton from '../../components/SocialSignInButton';
 import {useNavigation} from '@react-navigation/native';
+import {useForm} from 'react-hook-form';
 
 const SignUpScreen = () => {
-  const {username, setUsername} = useState('');
-  const {password, setPassword} = useState('');
-  const {email, setEmail} = useState('');
-  const {passwordRepeat, setPasswordRepeat} = useState('');
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm();
   const navigation = useNavigation();
   const onRegisterPressed = () => {
     navigation.navigate('ConfirmEmail');
@@ -26,25 +28,24 @@ const SignUpScreen = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
         <Text style={styles.title}>Create an account</Text>
-        <CustomInput
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
-        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+        <CustomInput placeholder="Username" name="Username" control={control} />
+        <CustomInput placeholder="Email" name="Email" control={control} />
         <CustomInput
           placeholder="Password"
-          value={password}
-          setValue={setPassword}
+          control={control}
+          name="Password"
           secureTextEntry={true}
         />
         <CustomInput
           placeholder="Repeat your Password"
-          value={passwordRepeat}
-          setValue={setPasswordRepeat}
+          name="RePassword"
+          control={control}
           secureTextEntry={true}
         />
-        <CustomButton text="Register" onPress={onRegisterPressed} />
+        <CustomButton
+          text="Register"
+          onPress={handleSubmit(onRegisterPressed)}
+        />
         <Text style={styles.text}>
           By registering, you confirm that you except our
           <Text style={styles.link} onPress={onTermOfUsePressed}>

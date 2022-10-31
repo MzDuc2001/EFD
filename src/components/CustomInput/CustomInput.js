@@ -23,7 +23,7 @@ const CustomInput = ({
             ]}>
             <TextInput
               value={value}
-              onChange={onChange}
+              onChangeText={onChange}
               onBlur={onBlur}
               placeholder={placeholder}
               style={[styles.input]}

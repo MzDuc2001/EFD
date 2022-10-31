@@ -4,10 +4,15 @@ import {View, Text, StyleSheet, ScrollView} from 'react-native';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import {useNavigation} from '@react-navigation/native';
+import {useForm} from 'react-hook-form';
 
 const ForgotPasswordScreen = () => {
-  const {code, setCode} = useState('');
   const navigation = useNavigation();
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm();
   const onConfirmPressed = () => {
     navigation.navigate('Home');
   };
@@ -21,11 +26,11 @@ const ForgotPasswordScreen = () => {
       <View style={styles.root}>
         <Text style={styles.title}>Confirm your email</Text>
         <CustomInput
+          control={control}
+          name="Code"
           placeholder="Enter your confirmation code"
-          value={code}
-          setValue={setCode}
         />
-        <CustomButton text="Confirm" onPress={onConfirmPressed} />
+        <CustomButton text="Confirm" onPress={handleSubmit(onConfirmPressed)} />
         <CustomButton
           text="Resend Code"
           onPress={onReSendCodePressed}
