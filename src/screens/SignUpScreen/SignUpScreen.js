@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
-
+import auth from '@react-native-firebase/auth';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButton from '../../components/SocialSignInButton';
@@ -15,7 +15,26 @@ const SignUpScreen = () => {
   } = useForm();
   const navigation = useNavigation();
   const onRegisterPressed = () => {
-    navigation.navigate('ConfirmEmail');
+    auth()
+      .createUserWithEmailAndPassword(
+        'phamd9975@gmail.com',
+        'SuperSecretPassword!',
+      )
+      .then(() => {
+        console.log('User account created & signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
+        }
+
+        console.error(error);
+      });
+    //navigation.navigate('ConfirmEmail');
   };
 
   const onTermOfUsePressed = () => {};

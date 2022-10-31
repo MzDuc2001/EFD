@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "809237974518",
+    "project_id": "efdapp-d27ab",
+    "storage_bucket": "efdapp-d27ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809237974518:android:d9286533c27b1f6de2cbd7",
+        "android_client_info": {
+          "package_name": "com.nckhreactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809237974518-us2f1l17pti59e183qp2h9f7u16hu2pf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA83embvNqdplupuykQiFJYqBh1sHdEBXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809237974518-us2f1l17pti59e183qp2h9f7u16hu2pf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
